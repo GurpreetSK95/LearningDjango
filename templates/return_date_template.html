@@ -9,7 +9,10 @@
 </head>
 <body>
 <p>
+    {#    use {% include %} tag here if needed - includes other template file #}
+    {#    usage: {% include 'name.html' %}#}
     The time is {{ time_now }}.
+    {%  include 'temp_file.html' %}
 </p>
 </body>
 </html>
