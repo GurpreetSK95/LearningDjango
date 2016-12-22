@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {# {% block block_id %} #}
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {# block defines a new block#}
-    {% block block1 %}{% endblock %}
+{# block defines a new block#}
+{% block block1 %}{% endblock %}
 </body>
 </html>
+
+{#to get data from parent: {{ block.super }}#}

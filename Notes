@@ -1,0 +1,5 @@
+python manage.py startapp app_name
+python manage.py check
+python manage.py makemigrations app_name        (Migrations are how Django stores changes to your models)
+python manage.py sqlmigrate app_name migration_name     (eg: python manage.py sqlmigrate books 0001)
+python manage.py migrate    (create/commit sql to database)
