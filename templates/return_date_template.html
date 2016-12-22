@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Current DateTime</title>
-    <style>
+{% extends 'base_templates/base.html' %}
 
-    </style>
-</head>
-<body>
-<p>
-    {#    use {% include %} tag here if needed - includes other template file #}
-    {#    usage: {% include 'name.html' %}#}
-    The time is {{ time_now }}.
-    {%  include 'temp_file.html' %}
-</p>
-</body>
-</html>
+{% block title %} The Current time {% endblock %}
+
+{% block block1 %}
+    The time is {{ time_now }}
+    <hr>
+    the test text is {{ test }}
+{% endblock %}

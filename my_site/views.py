@@ -6,10 +6,6 @@ from django.template import Context
 from django.shortcuts import render
 
 
-def hello(request):
-    return HttpResponse("Hello World")
-
-
 def return_date(request):
     # time = "The time is %s." % datetime.datetime.now()  # string formatting, datetime object converted to string by %s
     # templates should be stored in templates folder
@@ -28,11 +24,5 @@ def added_time(request, offset):
     except:
         raise Http404()
     future_time = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    statement = "The time in %s hour(s) will be %s" % (offset, future_time)
-    return HttpResponse(statement)
-
-
-def template_view(request):
-    t = template.Template("My name is {{name}}.")
-    context = template.Context({'name': "Gurpreet"})
-    t.render(context)
+    context = Context({'n': offset, 'future_time': future_time})
+    return  render(request, 'added_time_template.html', context)
