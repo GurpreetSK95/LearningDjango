@@ -8,7 +8,7 @@
 
 <p>You searched for {{ query }}</p>
 {% if books %}
-    <p>Found {{ books|length }} books:</p>
+    <p>Found {{ books|length }} book(s):</p>
     {% for b in books %}
         <li>{{ b.title }}</li>
     {% endfor %}
