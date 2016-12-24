@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from books.models import Book
 
 
@@ -16,11 +15,13 @@ def search_form(request):
 
 
 def search(request):
-    if 'query' in request.GET and request.GET['query']:
+    if 'query' in request.GET:
         q = request.GET['query']
+        if not q:
+            return render(request, 'search_form.html', {'error': False})
         books = Book.objects.filter(title__icontains=q)  # find q in book titles, case insensitive
         return render(request, 'search_results.html', {'books': books, "query": q})
         # message = 'You searched for %r.' % request.GET['query']
     else:  # no if else will raise a KeyError
-        message = 'Not found.'
-    return HttpResponse(message)
+        # message = 'Not found.'
+        return render(request, 'search_form.html', {'error': True})

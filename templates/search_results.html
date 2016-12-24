@@ -8,12 +8,12 @@
 
 <p>You searched for {{ query }}</p>
 {% if books %}
-    <p>Found {{ books|length }} book(s):</p>
+    <p>Found {{ books|length }} book{{ books|pluralize }}:</p>
     {% for b in books %}
         <li>{{ b.title }}</li>
     {% endfor %}
-    {% else %}
-        <p>Not results found</p>
+{% else %}
+    <p>Not results found</p>
 {% endif %}
 
 </body>
